@@ -1,3 +1,38 @@
+//Using buttons to select player
+const buttons = document.querySelectorAll(".button");
+
+let playerScore = 0;
+let computerScore = 0;
+
+buttons.forEach(button =>
+    button.addEventListener("click", playerSelect)
+)
+
+function playerSelect(e) {
+    playerWeapon = e.target.id;
+    game()
+    
+}
+
+let playerWeapon;
+
+function game() {
+
+    const playerSelection = playerWeapon;
+    const playerChoice = document.querySelector(".player-choice");
+    playerChoice.textContent = playerSelection;
+
+    const computerSelection = getComputerChoice();
+    const ComputerChoice = document.querySelector(".computer-choice")
+    ComputerChoice.textContent = computerSelection;
+
+    const roundWinner = document.querySelector(".round-winner")
+    roundWinner.textContent = playRound(playerSelection, computerSelection);
+
+    console.log(playerScore);
+    console.log(computerScore);
+}
+
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random()*3);
 
@@ -11,6 +46,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    const buttons = document.querySelectorAll(".button");
 
     if (computerSelection == playerSelection) {
         return "The result is a tie!"
@@ -45,22 +81,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerScore = 0;
-let computerScore = 0;
 
-const buttons = document.querySelectorAll(".button");
-
-buttons.forEach(button =>
-    button.addEventListener("click", playerSelect)
-)
-
-function playerSelect(e) {
-    playerSelection = e.target.id
-    console.log(playerSelection)
-    const computerSelection = getComputerChoice();
-    console.log(computerSelection)
-    console.log(playRound(playerSelection,computerSelection));
-
-}
 
 
