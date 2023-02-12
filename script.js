@@ -1,4 +1,5 @@
-let playerWeapon;
+let playerWeapon; // To access the variable globally
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -12,6 +13,7 @@ const resetDiv = document.querySelector(".reset-button");
 
 const buttons = document.querySelectorAll(".button");
 
+// to get player choice and run the whole game through button
 buttons.forEach(button =>
     button.addEventListener("click", playerSelect)
 )
@@ -24,6 +26,7 @@ function playerSelect(e) {
     }
 }
 
+// decide & declare winner, remove unnecessary stuff and create a reset button
 function declareWinner() {
     if (playerScore == 5){
         gameWinner.textContent = "You Win The Game!!!"
@@ -48,10 +51,12 @@ function declareWinner() {
     resetButton.addEventListener('click', resetGame)
 }
 
+// reload the page to reset the game
 function resetGame() {
     location.reload()
 }
 
+// update the game board and play rounds
 function game() {
 
     const playerSelection = playerWeapon;
@@ -68,6 +73,8 @@ function game() {
 
 }
 
+// give computer a random choice
+
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random()*3);
 
@@ -79,6 +86,8 @@ function getComputerChoice() {
         return "scissors"
     }
 }
+
+// decide who wins the round
 
 function playRound(playerSelection, computerSelection) {
     const buttons = document.querySelectorAll(".button");
