@@ -3,8 +3,8 @@ let playerWeapon; // To access the variable globally
 let playerScore = 0;
 let computerScore = 0;
 
-const playerChoice = document.querySelector(".player-choice");
-const ComputerChoice = document.querySelector(".computer-choice");
+// const playerChoice = document.querySelector(".player-choice");
+// const ComputerChoice = document.querySelector(".computer-choice");
 const roundWinner = document.querySelector(".round-winner");
 const gameWinner = document.querySelector(".announce");
 const playScore = document.querySelector(".player-score");
@@ -36,8 +36,8 @@ function declareWinner() {
 
     playerScore = 0;
     computerScore = 0;
-    playerChoice.remove();
-    ComputerChoice.remove();
+    //playerChoice.remove();
+    //ComputerChoice.remove();
     roundWinner.remove();
     
     buttons.forEach(button =>
@@ -48,7 +48,10 @@ function declareWinner() {
     const resetText = document.createTextNode("Reset Game")
     resetDiv.append(resetButton)
     resetButton.appendChild(resetText)
+    resetButton.classList.add("reset-style")
     resetButton.addEventListener('click', resetGame)
+
+    gameWinner.classList.add("winner")
 }
 
 // reload the page to reset the game
@@ -60,21 +63,16 @@ function resetGame() {
 function game() {
 
     const playerSelection = playerWeapon;
-    playerChoice.textContent = playerSelection;
-
     const computerSelection = getComputerChoice();
-    ComputerChoice.textContent = computerSelection;
 
     roundWinner.textContent = playRound(playerSelection, computerSelection);
 
     playScore.textContent = playerScore;
-
     compScore.textContent = computerScore;
 
 }
 
 // give computer a random choice
-
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random()*3);
 
@@ -88,7 +86,6 @@ function getComputerChoice() {
 }
 
 // decide who wins the round
-
 function playRound(playerSelection, computerSelection) {
     const buttons = document.querySelectorAll(".button");
 

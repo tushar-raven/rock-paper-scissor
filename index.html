@@ -6,21 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1 class="announce">Choose Your Weapon!</h1>
     
-    <button id = "rock" class = "button">🪨</button>
-    <button id = "paper" class = "button">📄</button>
-    <button id = "scissors" class = "button">✂️</button>
-
-    <p class = "player-choice"></p>
-    <p class = "player-score"></p>
-    <p class = "computer-choice"></p>
-    <p class = "computer-score"></p>
-    <p class="round-winner"></p>
-    <div class="reset-button">
-
+    <div class="player-button">
+        <button id = "rock" class = "button">🪨</button>
+        <button id = "paper" class = "button">📄</button>
+        <button id = "scissors" class = "button">✂️</button>
     </div>
+    
+  <!-- <div class="choice">
+        <p class = "player-choice"></p>
+        <p class = "computer-choice"></p>
+    </div> --> 
+
+    <div class="display">
+        <p>Player Score:</p>
+        <p>Computer Score:</p>
+    </div>
+    <div class="score">
+        <p class = "player-score"></p>
+        <p class = "computer-score"></p>
+    </div>
+    
+    <p class="round-winner"></p>
+    <div class="reset-button"></div>
+
 </body>
 </html>
